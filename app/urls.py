@@ -15,3 +15,4 @@ urlpatterns = [
     path("StudentUpdate_and_delete_view/<int:pk>/",views.StudentUpdate_and_delete_view.as_view()),
     path('dashboard/', views.Dashboard.as_view()),
 ]
+
