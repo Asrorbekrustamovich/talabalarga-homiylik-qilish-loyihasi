@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from  app import views 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
@@ -15,4 +17,7 @@ urlpatterns = [
     path("StudentUpdate_and_delete_view/<int:pk>/",views.StudentUpdate_and_delete_view.as_view()),
     path('dashboard/', views.Dashboard.as_view()),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  
 
